@@ -15,9 +15,3 @@ install:
 script:
   - sqlite3 < test.sql
   - python test.py
-addons:
-  apt:
-    packages:
-    - sqlite3
-    sources:
-    - travis-ci/sqlite3
