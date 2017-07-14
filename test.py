@@ -3,10 +3,7 @@ import sqlite3
 def fmt(val):
     return '%04d%s' % (val, '*' * 800)
 
-with open('test.sql', 'r') as handle:
-    test = handle.read()
 with sqlite3.connect(':memory:') as sql:
-#    sql.executescript(test)
     sql.isolation_level = None
     sql.execute('PRAGMA temp_store=MEMORY;')
     sql.execute('PRAGMA page_size=1024;')
