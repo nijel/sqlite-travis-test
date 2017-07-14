@@ -3,9 +3,9 @@ import sqlite3
 def fmt(val):
     return '%04d%s' % (val, '*' * 800)
 
-with sqlite3.connect(':memory:') as sql:
+with sqlite3.connect('test.db') as sql:
     sql.isolation_level = None
-    sql.execute('PRAGMA temp_store=MEMORY;')
+#    sql.execute('PRAGMA temp_store=FILE;')
     sql.execute('PRAGMA page_size=1024;')
     sql.execute('BEGIN;')
     sql.execute('CREATE TABLE t1(x INTEGER PRIMARY KEY, y TEXT);')
